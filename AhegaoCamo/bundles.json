@@ -1,0 +1,21 @@
+{
+    "manifest": 
+	[
+		{
+            "key": "AddClothing/suits/pants_ahe1.bundle",
+            "dependencyKeys": [
+                "cubemaps",
+                "shaders"
+            ]
+        },
+		
+		{
+            "key": "AddClothing/suits/shirt_ahe1.bundle",
+            "dependencyKeys": [
+                "cubemaps",
+                "shaders"
+            ]
+        }
+		
+    ]
+}
