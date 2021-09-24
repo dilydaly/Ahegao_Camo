@@ -11,7 +11,7 @@ class AhegaoCamo
 		
 		// THE MAIN JUICE
 		AhegaoCamo.AddBottom(db, "Ahegao_Pants_1", "AddClothing/suits/pants_ahe1.bundle");
-		AhegaoCamo.AddTop(db, "Ahegao_Shirt_1", "AddClothing/suits/shirt_ahe1.bundle");
+		//AhegaoCamo.AddTop(db, "Ahegao_Shirt_1", "AddClothing/suits/shirt_ahe1.bundle");
 		
 		
 	}
