@@ -12,6 +12,7 @@ class AhegaoCamo
 		// THE MAIN JUICE
 		AhegaoCamo.AddBottom(db, "Ahegao_Pants_1", "AddClothing/suits/pants_ahe1.bundle");
 		//AhegaoCamo.AddTop(db, "Ahegao_Shirt_1", "AddClothing/suits/shirt_ahe1.bundle");
+		AhegaoCamo.AddTop(db, "Ahegao_Shirt_1",	"AddClothing/suits/shirt_ahe1.bundle", "assets/content/hands/hands_tshirt_bear_black/hands_tshirt_bear_black.skin.bundle", "5d1f5aa286f7744bca3f0b9c");
 		
 		
 	}
@@ -25,7 +26,15 @@ class AhegaoCamo
         NewTop._name = OutfitID;
         NewTop._props.Prefab.path = TopBundlePath;
         DatabaseServer.tables.templates.customization[OutfitID] = NewTop;
-				
+		
+		// add hands
+		let NewHands = JsonUtil.clone(DatabaseServer.tables.templates.customization[handsBaseID]);
+
+        NewHands._id = `${OutfitID}Hands`;
+        NewHands._name = `${OutfitID}Hands`;
+        NewHands._props.Prefab.path = HandsBundlePath;
+        DatabaseServer.tables.templates.customization[`${OutfitID}Hands`] = NewHands;
+		
 		// add suite
 		let NewSuite = JsonUtil.clone(DatabaseServer.tables.templates.customization["5d1f623e86f7744bce0ef705"]);
 
@@ -94,11 +103,7 @@ class AhegaoCamo
         {
             // en placeholder
 			DatabaseServer.tables.locales.global[localeID].templates[`${OutfitID}Suite`] = JsonUtil.deserialize(VFS.readFile(`${db}locales/en.json`))[OutfitID];
-			
-			// actual locale
-			if (VFS.exists(`${db}locales/${localeID}.json`)) {
-			DatabaseServer.tables.locales.global[localeID].templates[`${OutfitID}Suite`] = JsonUtil.deserialize(VFS.readFile(`${db}locales/en.json`))[OutfitID];
-			}
+
         }
 		
 		// add suite to the ragman
@@ -122,7 +127,6 @@ class AhegaoCamo
 			}
 		});
 	}
-	
 }
 	
 module.exports = AhegaoCamo;
